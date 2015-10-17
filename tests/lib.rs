@@ -22,20 +22,20 @@ fn bubble_sort_partial() {
 #[test]
 fn bubble_sort_by_all() {
     let mut arr = INIT_ARR;
-    bubble_sort_by(&mut arr, |a, b| a.cmp(b));
+    bubble_sort_by(&mut arr, |a, b| a < b);
     assert_eq!(arr, [1,2,2,34,35,67,123]);
 
-    bubble_sort_by(&mut arr, |a, b| b.cmp(a));
+    bubble_sort_by(&mut arr, |a, b| b < a);
     assert_eq!(arr, [123,67,35,34,2,2,1]);
 }
 
 #[test]
 fn bubble_sort_by_partial() {
     let mut arr = INIT_ARR;
-    bubble_sort_by(&mut arr[1..6], |a, b| a.cmp(b));
+    bubble_sort_by(&mut arr[1..6], |a, b| a < b);
     assert_eq!(arr, [34,2,2,35,67,123,1]);
 
     arr = INIT_ARR;
-    bubble_sort_by(&mut arr[1..6], |a, b| b.cmp(a));
+    bubble_sort_by(&mut arr[1..6], |a, b| b < a);
     assert_eq!(arr, [34,123,67,35,2,2,1]);
 }
