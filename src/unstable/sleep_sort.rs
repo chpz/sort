@@ -3,10 +3,12 @@ extern crate num;
 use std::thread;
 use std::sync::mpsc;
 use std::sync::Arc;
-use num::{Unsigned};
+use self::num::{Unsigned, ToPrimitive};
 
-pub fn sleep_sort<T: Unsigned>(slice: &mut [T]) {
-    
+
+pub fn sleep_sort<T: Unsigned>(slice: &mut [T])
+    where T: Clone + Send + ToPrimitive + 'static {
+    sleep_sort_by(slice, |x| num::traits::NumCast::from((*x).clone()).unwrap_or(0));
 }
 
 pub fn sleep_sort_by<T, F>(slice: &mut [T], convert: F)
@@ -25,4 +27,3 @@ pub fn sleep_sort_by<T, F>(slice: &mut [T], convert: F)
         *i = rx.recv().ok().expect("Receive failed");
     }
 }
-

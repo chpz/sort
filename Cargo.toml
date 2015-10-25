@@ -4,4 +4,4 @@ version = "0.1.0"
 authors = ["chpz chpzwll@163.com"]
 
 [dependencies]
-num = '*'
+num = "*"
