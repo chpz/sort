@@ -3,7 +3,7 @@
 ###stable
 - [x] bubble sort
 - [ ] cocktail sort
-- [ ] insertion sort
+- [x] insertion sort
 - [ ] merge sort
 - [ ] counting sort
 - [ ] radix sort
@@ -24,4 +24,4 @@
 - [ ] bogo sort
 - [ ] bead sort
 - [ ] stooge sort
-- [ ] sleep sort
+- [x] sleep sort
