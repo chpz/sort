@@ -151,3 +151,38 @@ fn insertion_sort_by_partial() {
     assert_eq!(arr, [34,123,67,35,2,2,1]);
 }
 
+// cocktail_sort tests
+#[test]
+fn cocktail_sort_all() {
+    let mut arr = INIT_ARR;
+    cocktail_sort(&mut arr);
+    assert_eq!(arr, [1,2,2,34,35,67,123]);
+}
+
+#[test]
+fn cocktail_sort_partial() {
+    let mut arr = INIT_ARR;
+    cocktail_sort(&mut arr[1..6]);
+    assert_eq!(arr, [34,2,2,35,67,123,1]);
+}
+
+#[test]
+fn cocktail_sort_by_all() {
+    let mut arr = INIT_ARR;
+    cocktail_sort_by(&mut arr, |a, b| a < b);
+    assert_eq!(arr, [1,2,2,34,35,67,123]);
+
+    cocktail_sort_by(&mut arr, |a, b| b < a);
+    assert_eq!(arr, [123,67,35,34,2,2,1]);
+}
+
+#[test]
+fn cocktail_sort_by_partial() {
+    let mut arr = INIT_ARR;
+    cocktail_sort_by(&mut arr[1..6], |a, b| a < b);
+    assert_eq!(arr, [34,2,2,35,67,123,1]);
+
+    arr = INIT_ARR;
+    cocktail_sort_by(&mut arr[1..6], |a, b| b < a);
+    assert_eq!(arr, [34,123,67,35,2,2,1]);
+}

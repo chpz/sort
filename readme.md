@@ -2,7 +2,7 @@
 
 ###stable
 - [x] bubble sort
-- [ ] cocktail sort
+- [x] cocktail sort
 - [x] insertion sort
 - [ ] merge sort
 - [ ] counting sort
